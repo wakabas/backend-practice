@@ -8,7 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
-build/
+.venv/lib/python3.13/site-packages/pip/_internal/operations/build/
 develop-eggs/
 dist/
 downloads/
@@ -31,6 +31,7 @@ MANIFEST
 #   before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
+.idea/
 
 # Installer logs
 pip-log.txt
