@@ -9,7 +9,7 @@ class Degree(StrEnum):
     DOCTORATE = "Doctorate"
 
 
-class BaseStudent(BaseModel):
+class BasePostStudent(BaseModel):
     model_config =  ConfigDict(extra="forbid")
 
     first_name: str

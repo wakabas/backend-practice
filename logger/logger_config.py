@@ -9,5 +9,3 @@ class LoggerConfig:
     LOGS_LEVEL = logging.INFO
     FORMAT = "[%(asctime)s - %(levelname)s] - %(message)s"
     DATATIME_FORMAT = "%Y-%m-%dT%H:%M:%S"
-    MAX_BYTES = 1024 * 1024 * 10
-    BACKUP_COUNT = 3

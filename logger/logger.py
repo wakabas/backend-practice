@@ -1,6 +1,5 @@
 import logging
 import sys
-from logging.handlers import RotatingFileHandler
 from pathlib import Path
 
 from logger.logger_config import LoggerConfig
@@ -22,11 +21,9 @@ def get_logger() -> logging.Logger:
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setFormatter(formatter)
 
-    file_handler = RotatingFileHandler(LoggerConfig.LOGS_FILE_NAME,
+    file_handler = logging.FileHandler(LoggerConfig.LOGS_FILE_NAME,
                                        mode='w',
-                                       encoding='utf-8',
-                                       maxBytes=LoggerConfig.MAX_BYTES,
-                                       backupCount=LoggerConfig.BACKUP_COUNT)
+                                       encoding='utf-8')
     file_handler.setFormatter(formatter)
 
     logger.addHandler(console_handler)
@@ -35,3 +32,5 @@ def get_logger() -> logging.Logger:
     logger.step = lambda step_num, message: logger.info(f"[STEP {step_num}] {message}")
 
     return logger
+
+log = get_logger()

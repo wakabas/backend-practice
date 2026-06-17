@@ -5,5 +5,5 @@ class BaseService:
 
     SERVICE_URL = None
 
-    def __init__(self, session: ApiSession):
-        self.session = session
+    def __init__(self, api_session: ApiSession):
+        self.api_session = api_session

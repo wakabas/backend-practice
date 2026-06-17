@@ -1,7 +1,6 @@
 from pydantic import BaseModel, ConfigDict
 
-
-class BaseGroup(BaseModel):
+class TeacherDeleteRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
-    name: str
+    teacher_id: int

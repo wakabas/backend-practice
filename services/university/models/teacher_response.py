@@ -1,4 +1,0 @@
-from services.general.models.base_teacher import BaseTeacher
-
-class TeacherRequest(BaseTeacher):
-    id: int

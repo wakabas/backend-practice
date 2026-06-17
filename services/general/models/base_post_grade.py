@@ -8,7 +8,7 @@ class Grade(IntEnum):
     MAX = 5
 
 
-class BaseGrade(BaseModel):
+class BasePostGrade(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     teacher_id: int
