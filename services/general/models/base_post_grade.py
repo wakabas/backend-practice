@@ -13,4 +13,4 @@ class BasePostGrade(BaseModel):
 
     teacher_id: int
     student_id: int
-    grade: Grade = Field(ge=Grade.MIN, le=Grade.MAX)
+    grade: int = Field(ge=Grade.MIN, le=Grade.MAX)

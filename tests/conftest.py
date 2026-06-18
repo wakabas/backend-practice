@@ -31,8 +31,8 @@ def auth_service_anonymous(auth_session_service_anonymous):
     return auth_service
 
 
-@pytest.fixture(scope="module")
-def valid_user_creds(auth_service_anonymous):
+@pytest.fixture(scope="session")
+def valid_user_creds():
     valid_user = namedtuple("user", ["username", "password"])
     username = faker.user_name()
     password = faker.password(length=10,
@@ -43,7 +43,7 @@ def valid_user_creds(auth_service_anonymous):
     return valid_user(username=username, password=password)
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="session")
 def access_token(auth_service_anonymous, valid_user_creds):
     auth_service_anonymous.register_user(register_request=RegisterRequest(username=valid_user_creds.username,
                                                                           password=valid_user_creds.password,
@@ -55,13 +55,13 @@ def access_token(auth_service_anonymous, valid_user_creds):
     return login_response.access_token
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="session")
 def auth_api_session_admin(access_token):
     api_session = ApiSession(url=AuthService.SERVICE_URL, headers={"Authorization": f"Bearer {access_token}"})
     return api_session
 
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="session")
 def university_api_session_admin(access_token):
     api_session = ApiSession(url=UniversityService.SERVICE_URL, headers={"Authorization": f"Bearer {access_token}"})
     return api_session

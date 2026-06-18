@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 
-from services.general.models.base_grade import Grade
+from services.general.models.base_post_grade import Grade
 
 
 class GradeStatisticsResponse(BaseModel):

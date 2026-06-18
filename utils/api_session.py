@@ -34,6 +34,9 @@ class ApiSession:
         self.session = requests.Session()
         self.session.headers.update(headers)
 
+    def __repr__(self):
+        return f"<ApiSession url={self.url}>"
+
     @log_response
     def get(self, endpoint_url: str, **kwargs) -> requests.Response:
         response = self.session.get(self.url + endpoint_url, **kwargs)

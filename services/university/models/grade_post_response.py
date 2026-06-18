@@ -1,5 +1,5 @@
-from services.general.models.base_grade import BaseGrade
+from services.general.models.base_post_grade import BasePostGrade
 
 
-class GradeResponse(BaseGrade):
+class GradePostResponse(BasePostGrade):
     id: int

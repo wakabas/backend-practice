@@ -17,4 +17,3 @@ class BasePostTeacher(BaseModel):
     first_name: str
     last_name: str
     subject: Subject
-    id: int
