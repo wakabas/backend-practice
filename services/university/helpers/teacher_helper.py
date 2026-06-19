@@ -4,7 +4,6 @@ from services.general.helpers.base_helper import BaseHelper, log_error_status
 
 
 class TeacherHelper(BaseHelper):
-
     ENDPOINT_PREFIX = "/teachers"
     ROOT_ENDPOINT = f"{ENDPOINT_PREFIX}/"
 

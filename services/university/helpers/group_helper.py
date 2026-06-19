@@ -4,7 +4,6 @@ from services.general.helpers.base_helper import BaseHelper, log_error_status
 
 
 class GroupHelper(BaseHelper):
-
     ENDPOINT_PREFIX = "/groups"
     ROOT_ENDPOINT = f"{ENDPOINT_PREFIX}/"
 

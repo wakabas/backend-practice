@@ -1,6 +1,7 @@
 import json
 from functools import wraps
 
+import requests
 from requests import HTTPError
 
 from logger.logger import log
@@ -11,7 +12,7 @@ from utils.json_utils import JsonUtils
 def log_error_status(func):
     @wraps(func)
     def _log_error_status(*args, **kwargs):
-        response = func(*args, **kwargs)
+        response: requests.Response = func(*args, **kwargs)
         body = json.dumps(response.json(), indent=4) if JsonUtils.is_json(response.text) else response.text
         try:
             response.raise_for_status()

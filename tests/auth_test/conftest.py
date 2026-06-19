@@ -1,8 +1,9 @@
-from collections import namedtuple
 from random import randint
 
 import pytest
 from faker import Faker
+
+from services.auth.factories.valid_user_factory import ValidUserFactory
 
 faker = Faker()
 
@@ -33,7 +34,5 @@ password_arg_list = [
 
 @pytest.fixture(params=password_arg_list)
 def invalid_user_creds(request):
-    invalid_user = namedtuple("user", ["username", "password"])
-    username = faker.user_name()
-    password = faker.password(**request.param)
-    return invalid_user(username, password)
+    invalid_user = ValidUserFactory.build(password=faker.password(**request.param))
+    return invalid_user

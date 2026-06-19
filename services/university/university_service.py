@@ -34,6 +34,10 @@ class UniversityService(BaseService):
         response = self.student_helper.post_student(json=student_request.model_dump())
         return StudentPostResponse(**response.json())
 
+    def create_multiple_students(self, student_requests: list[StudentPostRequest]) -> list[
+        StudentPostResponse]:
+        return [self.create_student(student_request) for student_request in student_requests]
+
     def delete_student(self, student_request: StudentDeleteRequest) -> SuccessResponse:
         response = self.student_helper.delete_student(student_request.student_id)
         return SuccessResponse(**response.json())
@@ -41,6 +45,9 @@ class UniversityService(BaseService):
     def create_teacher(self, teacher_request: TeacherPostRequest) -> TeacherPostResponse:
         response = self.teacher_helper.post_teacher(json=teacher_request.model_dump())
         return TeacherPostResponse(**response.json())
+
+    def create_multiple_teachers(self, teacher_requests: list[TeacherPostRequest]) -> list[TeacherPostResponse]:
+        return [self.create_teacher(teacher_request) for teacher_request in teacher_requests]
 
     def delete_teacher(self, teacher_request: TeacherDeleteRequest) -> SuccessResponse:
         response = self.teacher_helper.delete_teacher(teacher_request.teacher_id)

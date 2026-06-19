@@ -6,7 +6,7 @@ from services.general.helpers.base_helper import BaseHelper, log_error_status
 class GradeHelper(BaseHelper):
     ENDPOINT_PREFIX = "/grades"
     ROOT_ENDPOINT = f"{ENDPOINT_PREFIX}/"
-    STATS_ENDPOINT = f"{ENDPOINT_PREFIX}stats/"
+    STATS_ENDPOINT = f"{ROOT_ENDPOINT}stats/"
 
     @log_error_status
     def post_grade(self, data: dict) -> requests.Response:

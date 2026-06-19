@@ -1,6 +1,7 @@
 from enum import StrEnum
 
-from pydantic import BaseModel, ConfigDict, EmailStr, Field
+from pydantic import BaseModel, ConfigDict, EmailStr
+
 
 class Degree(StrEnum):
     ASSOCIATE = "Associate"
@@ -10,7 +11,7 @@ class Degree(StrEnum):
 
 
 class BasePostStudent(BaseModel):
-    model_config =  ConfigDict(extra="forbid")
+    model_config = ConfigDict(extra="forbid")
 
     first_name: str
     last_name: str
