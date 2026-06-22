@@ -65,6 +65,13 @@ class UniversityService(BaseService):
         response = self.grade_helper.post_grade(data=grade_request.model_dump())
         return GradePostResponse(**response.json())
 
-    def get_grades_statistics(self, grade_stat_request: GradeStatisticsRequest) -> GradeStatisticsResponse:
-        response = self.grade_helper.get_stats(**grade_stat_request.model_dump(exclude_none=True))
+    def create_multiple_grades(self, grade_requests: list[GradePostRequest]) -> list[GradePostResponse]:
+        return [self.create_grade(grade_request) for grade_request in grade_requests]
+
+    def get_grades_statistics(self, group_id: int | None = None,
+                                    student_id: int | None = None,
+                                    teacher_id: int | None = None) -> GradeStatisticsResponse:
+        response = self.grade_helper.get_stats(group_id=group_id,
+                                               student_id=student_id,
+                                               teacher_id=teacher_id)
         return GradeStatisticsResponse(**response.json())
