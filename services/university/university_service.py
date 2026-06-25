@@ -6,7 +6,6 @@ from services.university.helpers.student_helper import StudentHelper
 from services.university.helpers.teacher_helper import TeacherHelper
 from services.university.models.grade_post_request import GradePostRequest
 from services.university.models.grade_post_response import GradePostResponse
-from services.university.models.grade_statistics_request import GradeStatisticsRequest
 from services.university.models.grade_statistics_response import GradeStatisticsResponse
 from services.university.models.group_delete_request import GroupDeleteRequest
 from services.university.models.group_post_request import GroupPostRequest

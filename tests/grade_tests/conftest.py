@@ -39,9 +39,6 @@ def students_lst(university_api_session_admin: ApiSession, group_id) -> list[int
     return student_ids
 
 
-@pytest.fixture(scope="function")
-def teacher_lst(university_api_session_admin: ApiSession) -> list[int]:
-    university_service = UniversityService(university_api_session_admin)
-    teacher_requests = TeacherFactory.batch(2)
-    teacher_ids = [teacher.id for teacher in university_service.create_multiple_teachers(teacher_requests)]
-    return teacher_ids
+@pytest.fixture(scope="function", params=[1, 2], ids=["teacher_1", "teacher_2"])
+def single_teacher(request, university_api_session_admin: ApiSession, teacher_id) -> int:
+    return teacher_id

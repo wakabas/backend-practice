@@ -32,7 +32,10 @@ password_arg_list = [
 ]
 
 
-@pytest.fixture(params=password_arg_list)
+@pytest.fixture(params=password_arg_list, ids=["short",
+                                               "too long",
+                                               "without special chars",
+                                               "without digits"])
 def invalid_user_creds(request):
     invalid_user = ValidUserFactory.build(password=faker.password(**request.param))
     return invalid_user
