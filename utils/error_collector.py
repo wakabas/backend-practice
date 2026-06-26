@@ -4,21 +4,18 @@ from logger.logger import log
 class ErrorCollector:
 
     def __init__(self):
-        self.errors: list[AssertionError] = []
+        self.errors = []
 
-    def __enter__(self):
-        return self
-
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        if exc_type is AssertionError:
-            self.errors.append(exc_val)
-            return True
-
-        return False
+    def check(self, assert_condition: bool, message: str = None):
+        try:
+            assert assert_condition
+        except AssertionError:
+            self.errors.append(message or "Failed to assert!")
 
     def verify_all_errors(self):
         if self.errors:
-            message = (f'List of occurred errors:\n'
-                       f'{"\n".join([str(err) for err in self.errors])}')
-            log.info(message)
-            raise AssertionError(message)
+            failure_lines = [f"[{index}] {error}" for index, error in enumerate(self.errors, start=1)]
+            report = f'Failed assertions count: [{len(self.errors)}]\n' + '\n'.join(failure_lines)
+            self.errors = []
+            log.info(report)
+            raise AssertionError(report)
