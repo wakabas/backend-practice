@@ -3,12 +3,13 @@ from random import randint
 from logger.logger import log
 from services.general.models.base_post_grade import Grade
 from services.university.models.grade_post_request import GradePostRequest
-from services.university.university_service import UniversityService
 
 
 class TestGrade:
-    def test_grade_create(self, university_api_session_admin, teacher_id, student_id):
-        university_service = UniversityService(university_api_session_admin)
+    def test_grade_create(self,
+                          university_service,
+                          teacher_id,
+                          student_id):
         log.step(1, "Create grade")
         grade_response = university_service.create_grade(GradePostRequest(teacher_id=teacher_id,
                                                                           student_id=student_id,

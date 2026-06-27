@@ -55,3 +55,7 @@ def university_api_session_admin(access_token: str) -> ApiSession:
     api_session = ApiSession(url=UniversityService.SERVICE_URL, headers={"Authorization": f"Bearer {access_token}"})
     return api_session
 
+@pytest.fixture(scope="session")
+def university_service(university_api_session_admin):
+    service = UniversityService(university_api_session_admin)
+    return service
