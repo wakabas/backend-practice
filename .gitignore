@@ -2,11 +2,14 @@
 __pycache__/
 *.py[codz]
 *$py.class
+*:Zone.Identifier
 
 # C extensions
 *.so
 
 # Distribution / packaging
+allure-results/
+allure-reports/
 .Python
 build/
 develop-eggs/
