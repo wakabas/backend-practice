@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.13'
 
@@ -24,8 +24,8 @@ jobs:
 
       - name: Verify code with ruff
         run: |
-          ruff check .
-          ruff format --check .
+          python -m ruff check .
+          ruff python -m format --check .
 
       - name: Create .env and start topology
         run: |
