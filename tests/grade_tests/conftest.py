@@ -23,8 +23,8 @@ def group_id(university_service) -> int:
 
 
 @pytest.fixture(scope="function")
-def grades_lst(num_of_grades: int) -> list[int]:
-    grades = [randint(Grade.MIN, Grade.MAX) for _ in range(num_of_grades)]
+def grades_lst() -> list[int]:
+    grades = [randint(Grade.MIN, Grade.MAX) for _ in range(10)]
     return grades
 
 
