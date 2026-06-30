@@ -2,7 +2,6 @@ import json
 
 
 class JsonUtils:
-
     @staticmethod
     def is_json(json_str: str) -> bool:
         try:

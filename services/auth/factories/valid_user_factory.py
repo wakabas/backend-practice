@@ -12,11 +12,13 @@ class ValidUserFactory(ModelFactory):
 
     @classmethod
     def password(cls):
-        return cls.__faker__.password(length=20,
-                                      special_chars=True,
-                                      digits=True,
-                                      upper_case=True,
-                                      lower_case=True, )
+        return cls.__faker__.password(
+            length=20,
+            special_chars=True,
+            digits=True,
+            upper_case=True,
+            lower_case=True,
+        )
 
     @classmethod
     def build(cls, **kwargs):

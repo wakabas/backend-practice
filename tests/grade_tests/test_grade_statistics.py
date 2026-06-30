@@ -1,129 +1,113 @@
-from random import randint
+import allure
 
 from logger.logger import log
-from services.general.models.base_post_grade import Grade
-from services.university.factories.grade_factory import GradeFactory
-from services.university.factories.student_factory import StudentFactory
-from services.university.models.grade_post_request import GradePostRequest
 from utils.error_collector import ErrorCollector
-
-
-def grades_lst(num_of_grades: int) -> list[int]:
-    grades = [randint(Grade.MIN, Grade.MAX) for _ in range(num_of_grades)]
-    return grades
-
 
 collector = ErrorCollector()
 
 
-class TestStatistics:
-    def test_grade_count_for_group(self,
-                                   university_service,
-                                   students_lst,
-                                   teacher_id,
-                                   group_id):
-        grades = grades_lst(num_of_grades=10)
-        log.step(1, "Set grades to students in the same group")
-        for student, grade in zip(students_lst, grades):
-            university_service.create_grade(GradePostRequest(teacher_id=teacher_id,
-                                                             student_id=student,
-                                                             grade=grade))
-        received_stats = university_service.get_grades_statistics(group_id=group_id)
-        log.step(2, "Checking count of grades for group")
-        expected_count = len(grades)
-        collector.check(expected_count == received_stats.count,
-                        f"Expected count - {expected_count}, but got {received_stats.count}")
+@allure.suite("Tests for grade statistics, count")
+class TestGradeCount:
+    @allure.title("Test grade count for group")
+    def test_grade_count_for_group(
+            self, university_service, grades_lst, student_group_with_marks
+    ):
+        with allure.step("Step 1: Receive grades statistics for group"):
+            log.step(1, "Receive grades statistics for group")
+            received_stats = university_service.get_grades_statistics(group_id=student_group_with_marks)
+        with allure.step("Step 2: Perform logic check, compare actual and received count for group"):
+            log.step(2, "Perform logic check, compare actual and received count of grades for group")
+            expected_count = len(grades_lst)
+            collector.check(
+                expected_count == received_stats.count,
+                f"Expected count - {expected_count}, but got {received_stats.count}",
+            )
         collector.verify_all_errors()
 
-    def test_grades_avg_for_group(self,
-                                  university_service,
-                                  students_lst,
-                                  teacher_id,
-                                  group_id):
-        grades = grades_lst(num_of_grades=10)
-        log.step(1, "Set grades to students in the same group")
-        for student, grade in zip(students_lst, grades):
-            university_service.create_grade(GradePostRequest(teacher_id=teacher_id,
-                                                             student_id=student,
-                                                             grade=grade))
-        received_stats = university_service.get_grades_statistics(group_id=group_id)
-        log.step(2, "Perform logic check, get average score for group")
-        expected_stats = sum(grades) / len(grades)
-        collector.check(expected_stats == received_stats.avg,
-                        f"Expected average score - {expected_stats}, but got {received_stats.avg}")
+    @allure.title("Test grade count for student")
+    def test_grade_count_for_student(self, university_service, student_with_grades, grades_lst):
+        with allure.step("Step 1: Receive grades statistics for student"):
+            log.step(1, "Receive grades statistics for student")
+            received_stats = university_service.get_grades_statistics(student_id=student_with_grades)
+        with allure.step("Step 2: Perform logic check, compare actual and received count for student"):
+            log.step(2, "Perform logic check, compare actual and received count of grades for student")
+            expected_count = len(grades_lst)
+            collector.check(
+                expected_count == received_stats.count,
+                f"Expected count - {expected_count}, but got {received_stats.count}",
+            )
         collector.verify_all_errors()
 
-    def test_grade_count_for_student(self,
-                                     university_service,
-                                     student_id,
-                                     teacher_id):
-        log.step(1, "Generate list of random grades")
-        grades = grades_lst(num_of_grades=10)
-        log.step(2, "Set grades to student")
-        for grade in grades:
-            university_service.create_grade(GradePostRequest(teacher_id=teacher_id,
-                                                             student_id=student_id,
-                                                             grade=grade))
-        received_stats = university_service.get_grades_statistics(student_id=student_id)
-        log.step(3, "Checking count of grades")
-        expected_count = len(grades)
-        collector.check(expected_count == received_stats.count,
-                        f"Expected count - {expected_count}, but got {received_stats.count}")
+    @allure.title("Test grade count for teacher")
+    def test_grade_count_for_teacher(
+            self, university_service, teacher_and_grades
+    ):
+        single_teacher, grades_values = teacher_and_grades
+        with allure.step("Step 1: Receive grades statistics for teacher"):
+            log.step(1, "Receive grades statistics for teacher")
+            received_grades_stat = university_service.get_grades_statistics(
+                teacher_id=single_teacher
+            )
+        with allure.step("Step 2: Perform logic check, compare actual and received count for teacher"):
+            log.step(2, "Perform logic check, compare actual and received count of grades")
+            expected_count = len(grades_values)
+            collector.check(
+                expected_count == received_grades_stat.count,
+                f"Expected count - {expected_count}, but got {received_grades_stat.count}",
+            )
+        collector.verify_all_errors()
+
+
+@allure.suite("Tests for grade statistics, average score")
+class TestAverageGrade:
+
+    @allure.title("Test grade average score for group")
+    def test_grades_avg_for_group(
+            self, university_service, grades_lst, student_group_with_marks
+    ):
+        with allure.step("Step 1: Receive grades statistics for group"):
+            log.step(1, "Receive count of grades for group")
+            received_stats = university_service.get_grades_statistics(group_id=student_group_with_marks)
+        with allure.step("Step 2: Perform logic check, compare actual and received count for group"):
+            log.step(2, "Perform logic check, get average score for group")
+            expected_stats = sum(grades_lst) / len(grades_lst)
+            collector.check(
+                expected_stats == received_stats.avg,
+                f"Expected average score - {expected_stats}, but got {received_stats.avg}",
+            )
+        collector.verify_all_errors()
 
         collector.verify_all_errors()
 
-    def test_grade_avg_for_student(self,
-                                   university_service,
-                                   student_id,
-                                   teacher_id):
-        log.step(1, "Generate list of random grades")
-        grades = grades_lst(num_of_grades=10)
-        log.step(2, "Set grades to student")
-        for grade in grades:
-            university_service.create_grade(GradePostRequest(teacher_id=teacher_id,
-                                                             student_id=student_id,
-                                                             grade=grade))
-        received_stats = university_service.get_grades_statistics(student_id=student_id)
-        log.step(3, "Perform logic check, get average score for student")
-        expected_stats = sum(grades) / len(grades)
-        collector.check(expected_stats == received_stats.avg,
-                        f"Expected average score - {expected_stats}, but got {received_stats.avg}")
+    @allure.title("Test grade average score for student")
+    def test_grade_avg_for_student(self, university_service, student_with_grades, grades_lst):
+        with allure.step("Step 1: Receive grades statistics for student"):
+            log.step(1, "Receive grades statistics for student")
+            received_stats = university_service.get_grades_statistics(student_id=student_with_grades)
+        with allure.step("Step 2: Perform logic check, compare actual and received count for student"):
+            log.step(2, "Perform logic check, get average score for student")
+            expected_stats = sum(grades_lst) / len(grades_lst)
+            collector.check(
+                expected_stats == received_stats.avg,
+                f"Expected average score - {expected_stats}, but got {received_stats.avg}",
+            )
         collector.verify_all_errors()
 
-    def test_grade_count_for_teacher(self,
-                                     university_service,
-                                     group_id,
-                                     single_teacher):
-        log.step(1, "Set grades to student by 2 teachers")
-        student = university_service.create_student(student_request=StudentFactory.build(group_id=group_id))
-        grades = university_service.create_multiple_grades(GradeFactory.batch(10,
-                                                                              teacher_id=single_teacher,
-                                                                              student_id=student.id))
-        grades_values = [grade.grade for grade in grades]
-        received_grades_stat = university_service.get_grades_statistics(teacher_id=single_teacher)
-        log.step(2, "Check count of grades given by each teacher")
-        expected_count = len(grades_values)
-        collector.check(expected_count == received_grades_stat.count,
-                        f"Expected count - {expected_count}, but got {received_grades_stat.count}")
-        log.step(3, "Perform logic check, get average score for each teacher")
-        expected_grades_avg = sum(grades_values) / expected_count
-        collector.check(expected_grades_avg == received_grades_stat.avg,
-                        f"Expected average score - {expected_grades_avg}, but got {received_grades_stat.avg}")
-        collector.verify_all_errors()
-
-    def test_grades_avg_for_teacher(self,
-                                    university_service,
-                                    group_id,
-                                    single_teacher):
-        log.step(1, "Set grades to student by 2 teachers")
-        student = university_service.create_student(student_request=StudentFactory.build(group_id=group_id))
-        grades = university_service.create_multiple_grades(GradeFactory.batch(10,
-                                                                              teacher_id=single_teacher,
-                                                                              student_id=student.id))
-        grades_values = [grade.grade for grade in grades]
-        received_grades_stat = university_service.get_grades_statistics(teacher_id=single_teacher)
-        log.step(2, "Perform logic check, get average score for each teacher")
-        expected_grades_avg = sum(grades_values) / len(grades_values)
-        collector.check(expected_grades_avg == received_grades_stat.avg,
-                        f"Expected average score - {expected_grades_avg}, but got {received_grades_stat.avg}")
+    @allure.title("Test grade average score for teacher")
+    def test_grades_avg_for_teacher(
+            self, university_service, teacher_and_grades
+    ):
+        single_teacher, grades_values = teacher_and_grades
+        with allure.step("Step 1: Receive grades statistics for teacher"):
+            log.step(1, "Receive grades statistics for teacher")
+            received_grades_stat = university_service.get_grades_statistics(
+                teacher_id=single_teacher
+            )
+        with allure.step("Step 2: Perform logic check, compare actual and received count for teacher"):
+            log.step(2, "Perform logic check, get average score for each teacher")
+            expected_grades_avg = sum(grades_values) / len(grades_values)
+            collector.check(
+                expected_grades_avg == received_grades_stat.avg,
+                f"Expected average score - {expected_grades_avg}, but got {received_grades_stat.avg}",
+            )
         collector.verify_all_errors()

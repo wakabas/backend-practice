@@ -20,7 +20,7 @@ from utils.api_session import ApiSession
 
 
 class UniversityService(BaseService):
-    SERVICE_URL = "http://127.0.0.1:8001"
+    SERVICE_URL = "http://university:8000"
 
     def __init__(self, api_session: ApiSession):
         super().__init__(api_session)
@@ -29,24 +29,35 @@ class UniversityService(BaseService):
         self.student_helper = StudentHelper(self.api_session)
         self.teacher_helper = TeacherHelper(self.api_session)
 
-    def create_student(self, student_request: StudentPostRequest) -> StudentPostResponse:
+    def create_student(
+        self, student_request: StudentPostRequest
+    ) -> StudentPostResponse:
         response = self.student_helper.post_student(json=student_request.model_dump())
         return StudentPostResponse(**response.json())
 
-    def create_multiple_students(self, student_requests: list[StudentPostRequest]) -> list[
-        StudentPostResponse]:
-        return [self.create_student(student_request) for student_request in student_requests]
+    def create_multiple_students(
+        self, student_requests: list[StudentPostRequest]
+    ) -> list[StudentPostResponse]:
+        return [
+            self.create_student(student_request) for student_request in student_requests
+        ]
 
     def delete_student(self, student_request: StudentDeleteRequest) -> SuccessResponse:
         response = self.student_helper.delete_student(student_request.student_id)
         return SuccessResponse(**response.json())
 
-    def create_teacher(self, teacher_request: TeacherPostRequest) -> TeacherPostResponse:
+    def create_teacher(
+        self, teacher_request: TeacherPostRequest
+    ) -> TeacherPostResponse:
         response = self.teacher_helper.post_teacher(json=teacher_request.model_dump())
         return TeacherPostResponse(**response.json())
 
-    def create_multiple_teachers(self, teacher_requests: list[TeacherPostRequest]) -> list[TeacherPostResponse]:
-        return [self.create_teacher(teacher_request) for teacher_request in teacher_requests]
+    def create_multiple_teachers(
+        self, teacher_requests: list[TeacherPostRequest]
+    ) -> list[TeacherPostResponse]:
+        return [
+            self.create_teacher(teacher_request) for teacher_request in teacher_requests
+        ]
 
     def delete_teacher(self, teacher_request: TeacherDeleteRequest) -> SuccessResponse:
         response = self.teacher_helper.delete_teacher(teacher_request.teacher_id)
@@ -64,13 +75,18 @@ class UniversityService(BaseService):
         response = self.grade_helper.post_grade(data=grade_request.model_dump())
         return GradePostResponse(**response.json())
 
-    def create_multiple_grades(self, grade_requests: list[GradePostRequest]) -> list[GradePostResponse]:
+    def create_multiple_grades(
+        self, grade_requests: list[GradePostRequest]
+    ) -> list[GradePostResponse]:
         return [self.create_grade(grade_request) for grade_request in grade_requests]
 
-    def get_grades_statistics(self, group_id: int | None = None,
-                                    student_id: int | None = None,
-                                    teacher_id: int | None = None) -> GradeStatisticsResponse:
-        response = self.grade_helper.get_stats(group_id=group_id,
-                                               student_id=student_id,
-                                               teacher_id=teacher_id)
+    def get_grades_statistics(
+        self,
+        group_id: int | None = None,
+        student_id: int | None = None,
+        teacher_id: int | None = None,
+    ) -> GradeStatisticsResponse:
+        response = self.grade_helper.get_stats(
+            group_id=group_id, student_id=student_id, teacher_id=teacher_id
+        )
         return GradeStatisticsResponse(**response.json())
