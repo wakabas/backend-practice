@@ -14,18 +14,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install uv and Python
-        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
         with:
           python-version: "3.13"
 
       - name: Install dependencies
-        run: uv pip install ".[dev]" --system
+        run: pip install .
+        
+      - name: Install Ruff
+        run: pip install ruff
 
-      - name: Verify code with ruff
+      - name: Verify code with Ruff
         run: |
-          uv run --system ruff check .
-          uv run --system ruff format --check .
+          python -m ruff check .
+          python -m ruff format --check .
 
       - name: Create .env and start topology
         run: |
