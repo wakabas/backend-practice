@@ -12,20 +12,20 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
+      - name: Install uv and Python
+        uses: astral-sh/setup-uv@v8
         with:
-          python-version: '3.13'
+          python-version: "3.13"
 
       - name: Install dependencies
-        run: pip install ".[dev]"
+        run: uv pip install ".[dev]"
 
       - name: Verify code with ruff
         run: |
-          ruff check .
-          ruff format --check .
+          uv run ruff check .
+          uv run -m ruff format --check .
 
       - name: Create .env and start topology
         run: |
