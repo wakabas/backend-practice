@@ -1,0 +1,18 @@
+INFO     logger:api_session.py:16 Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Content-Length: 94' -H 'Content-Type: application/x-www-form-urlencoded' -d 'username=longkathleen&password=%2A%25Uh4Tt&password_repeat=%2A%25Uh4Tt&email=bhall%40gmail.com' http://auth:8000/auth/register/
+INFO     logger:api_session.py:22 Response status code = '422', elapsed_time = '0.002251'
+{
+    "detail": [
+        {
+            "type": "value_error",
+            "loc": [
+                "body",
+                "password"
+            ],
+            "msg": "Value error, Password length should be longer than 7 characters",
+            "input": "*%Uh4Tt",
+            "ctx": {
+                "error": {}
+            }
+        }
+    ]
+}

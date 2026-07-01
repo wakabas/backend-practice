@@ -1,0 +1,19 @@
+[2026-07-01T13:25:23 - INFO] - Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Content-Length: 247' -H 'Content-Type: application/x-www-form-urlencoded' -d 'username=monique05&password=3J9a84C4pYu7BcjVXT15Bb0HbxwFvOtaxsOWTkxAMYOg1Gl3AV9bQ6riiENlMgUJXZyWJrOCMmZzuiyBveNQQo&password_repeat=3J9a84C4pYu7BcjVXT15Bb0HbxwFvOtaxsOWTkxAMYOg1Gl3AV9bQ6riiENlMgUJXZyWJrOCMmZzuiyBveNQQo&email=whiteryan%40hotmail.com' http://auth:8000/auth/register/
+[2026-07-01T13:25:23 - INFO] - Response status code = '422', elapsed_time = '0.002409'
+{
+    "detail": [
+        {
+            "type": "value_error",
+            "loc": [
+                "body",
+                "password"
+            ],
+            "msg": "Value error, Password must contains at least one special character",
+            "input": "3J9a84C4pYu7BcjVXT15Bb0HbxwFvOtaxsOWTkxAMYOg1Gl3AV9bQ6riiENlMgUJXZyWJrOCMmZzuiyBveNQQo",
+            "ctx": {
+                "error": {}
+            }
+        }
+    ]
+}
+

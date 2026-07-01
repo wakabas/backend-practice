@@ -1,0 +1,19 @@
+[2026-07-01T13:25:23 - INFO] - Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Content-Length: 312' -H 'Content-Type: application/x-www-form-urlencoded' -d 'username=michelle88&password=O%25_%23%40%24ajVCU%40%2A%23Czb%2Ai%40SzYrMzj%2BDNjX%26%29tzYB%28qkf%2BKEJ%40tY%26yXqFR%21deaYjl%40ScbMBsYdUCiaqorwKcun&password_repeat=O%25_%23%40%24ajVCU%40%2A%23Czb%2Ai%40SzYrMzj%2BDNjX%26%29tzYB%28qkf%2BKEJ%40tY%26yXqFR%21deaYjl%40ScbMBsYdUCiaqorwKcun&email=leonard04%40gmail.com' http://auth:8000/auth/register/
+[2026-07-01T13:25:23 - INFO] - Response status code = '422', elapsed_time = '0.00238'
+{
+    "detail": [
+        {
+            "type": "value_error",
+            "loc": [
+                "body",
+                "password"
+            ],
+            "msg": "Value error, Password must contains at least one digit",
+            "input": "O%_#@$ajVCU@*#Czb*i@SzYrMzj+DNjX&)tzYB(qkf+KEJ@tY&yXqFR!deaYjl@ScbMBsYdUCiaqorwKcun",
+            "ctx": {
+                "error": {}
+            }
+        }
+    ]
+}
+

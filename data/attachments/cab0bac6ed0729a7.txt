@@ -1,0 +1,6 @@
+[2026-07-01T13:25:23 - INFO] - Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Content-Length: 332' -H 'Content-Type: application/x-www-form-urlencoded' -d 'username=courtneyadkins&password=2VWmTV%26lRt7%266PdZG%2Bo3HHdflpuoh_mvcyUep6Hqyhq%283hTT%26GlXHmD%2B8HS%5E7d%24Z27%26%2AhQqcwRZ35Jv31KSMq%2BXTeQMhxnc4g%24%21K&password_repeat=2VWmTV%26lRt7%266PdZG%2Bo3HHdflpuoh_mvcyUep6Hqyhq%283hTT%26GlXHmD%2B8HS%5E7d%24Z27%26%2AhQqcwRZ35Jv31KSMq%2BXTeQMhxnc4g%24%21K&email=pinedaandre%40yahoo.com' http://auth:8000/auth/register/
+[2026-07-01T13:25:23 - INFO] - Response status code = '201', elapsed_time = '0.27387'
+{
+    "detail": "User registered"
+}
+
