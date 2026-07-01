@@ -32,8 +32,10 @@ jobs:
           echo "${{ secrets.POSTGRE_ADMINS }}" > .env
           echo "${{ secrets.URLS }}" >> .env
           docker compose up postgres_auth postgres_university auth university -d
-          docker compose logs postgres_university
           docker compose run backend-tests
+          
+      - name: Read log for postgres_university container
+        run: docker compose logs postgres_university
 
       - name: Load Allure history and Generate Report
         uses: simple-elf/allure-report-action@master
