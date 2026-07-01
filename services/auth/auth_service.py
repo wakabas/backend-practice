@@ -15,13 +15,9 @@ class AuthService(BaseService):
         self.authentication_helper = AuthenticationHelper(self.api_session)
 
     def register_user(self, register_request: RegisterRequest) -> SuccessResponse:
-        response = self.authentication_helper.post_register(
-            data=register_request.model_dump()
-        )
+        response = self.authentication_helper.post_register(data=register_request.model_dump())
         return SuccessResponse(**response.json())
 
     def login_user(self, login_request: LoginRequest) -> LoginResponse:
-        response = self.authentication_helper.post_login(
-            data=login_request.model_dump()
-        )
+        response = self.authentication_helper.post_login(data=login_request.model_dump())
         return LoginResponse(**response.json())

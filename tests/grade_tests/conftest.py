@@ -17,9 +17,7 @@ faker = Faker()
 
 @pytest.fixture(scope="function")
 def group_id(university_service) -> int:
-    group = university_service.create_group(
-        group_request=GroupPostRequest(name=faker.word())
-    )
+    group = university_service.create_group(group_request=GroupPostRequest(name=faker.word()))
     return group.id
 
 
@@ -31,9 +29,7 @@ def grades_lst() -> list[int]:
 
 @pytest.fixture(scope="function")
 def student_id(university_service, group_id: int) -> int:
-    student = university_service.create_student(
-        student_request=StudentFactory.build(group_id=group_id)
-    )
+    student = university_service.create_student(student_request=StudentFactory.build(group_id=group_id))
     return student.id
 
 
@@ -46,17 +42,12 @@ def teacher_id(university_service) -> int:
 @pytest.fixture(scope="function")
 def students_lst(university_service, group_id) -> list[StudentPostResponse]:
     students_requests = StudentFactory.batch(10, group_id=group_id)
-    students = [
-        student
-        for student in university_service.create_multiple_students(students_requests)
-    ]
+    students = [student for student in university_service.create_multiple_students(students_requests)]
     return students
 
 
 @pytest.fixture(scope="function", params=[1, 2], ids=["teacher_1", "teacher_2"])
-def teacher_and_grades(
-    request, university_service, teacher_id, group_id, student_id
-) -> tuple[int, list[Any]]:
+def teacher_and_grades(request, university_service, teacher_id, group_id, student_id) -> tuple[int, list[Any]]:
     grades = university_service.create_multiple_grades(
         GradeFactory.batch(10, teacher_id=teacher_id, student_id=student_id)
     )
@@ -67,16 +58,12 @@ def teacher_and_grades(
 @pytest.fixture(scope="function")
 def student_group_with_marks(university_service, grades_lst, teacher_id, students_lst):
     for student, grade in zip(students_lst, grades_lst):
-        university_service.create_grade(
-            GradePostRequest(teacher_id=teacher_id, student_id=student.id, grade=grade)
-        )
+        university_service.create_grade(GradePostRequest(teacher_id=teacher_id, student_id=student.id, grade=grade))
     return students_lst[0].group_id
 
 
 @pytest.fixture(scope="function")
 def student_with_grades(university_service, grades_lst, teacher_id, student_id):
     for grade in grades_lst:
-        university_service.create_grade(
-            GradePostRequest(teacher_id=teacher_id, student_id=student_id, grade=grade)
-        )
+        university_service.create_grade(GradePostRequest(teacher_id=teacher_id, student_id=student_id, grade=grade))
     return student_id

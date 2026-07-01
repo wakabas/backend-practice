@@ -21,10 +21,9 @@ class TestGrade:
             )
         with allure.step("Step 2: Verification for grade ids (teacher_id, student_id)"):
             log.step(2, "Verification for grade ids (teacher_id, student_id)")
-            assert (
-                grade_response.teacher_id == teacher_id
-                and grade_response.student_id == student_id
-            ), (
-                f"Expected id for teacher or student: teacher_id - {teacher_id}, student_id - {student_id}\n"
-                f"Actual ids: teacher - {grade_response.teacher_id}, student - {grade_response.student_id}"
+            assert grade_response.teacher_id == teacher_id and grade_response.student_id == student_id, (
+                f"Expected id for teacher or student: teacher_id - {teacher_id}, "
+                f"student_id - {student_id}\n"
+                f"Actual ids: teacher - {grade_response.teacher_id}, "
+                f"student - {grade_response.student_id}"
             )

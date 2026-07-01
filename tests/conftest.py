@@ -78,9 +78,7 @@ def access_token(auth_service_anonymous: AuthService) -> str:
 
 @pytest.fixture(scope="session")
 def auth_api_session_admin(access_token: str) -> ApiSession:
-    api_session = ApiSession(
-        url=AuthService.SERVICE_URL, headers={"Authorization": f"Bearer {access_token}"}
-    )
+    api_session = ApiSession(url=AuthService.SERVICE_URL, headers={"Authorization": f"Bearer {access_token}"})
     return api_session
 
 

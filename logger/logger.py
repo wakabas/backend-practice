@@ -14,15 +14,11 @@ def get_logger() -> logging.Logger:
     logger.setLevel(LoggerConfig.LOGS_LEVEL)
     Path(LoggerConfig.LOGGER_DIR_NAME).mkdir(parents=True, exist_ok=True)
 
-    formatter = logging.Formatter(
-        fmt=LoggerConfig.FORMAT, datefmt=LoggerConfig.DATATIME_FORMAT
-    )
+    formatter = logging.Formatter(fmt=LoggerConfig.FORMAT, datefmt=LoggerConfig.DATATIME_FORMAT)
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setFormatter(formatter)
 
-    file_handler = logging.FileHandler(
-        LoggerConfig.LOGS_FILE_NAME, mode="w", encoding="utf-8"
-    )
+    file_handler = logging.FileHandler(LoggerConfig.LOGS_FILE_NAME, mode="w", encoding="utf-8")
     file_handler.setFormatter(formatter)
 
     logger.addHandler(console_handler)

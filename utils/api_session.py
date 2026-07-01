@@ -14,11 +14,7 @@ def log_response(func):
         try:
             response = func(*args, **kwargs)
             log.info(f"Request: {curlify.to_curl(response.request)}")
-            body = (
-                json.dumps(response.json(), indent=4)
-                if JsonUtils.is_json(response.text)
-                else response.text
-            )
+            body = json.dumps(response.json(), indent=4) if JsonUtils.is_json(response.text) else response.text
             log.info(
                 f"Response status code = '{response.status_code}', "
                 f"elapsed_time = '{response.elapsed.total_seconds()}'\n{body}\n"
@@ -48,9 +44,7 @@ class ApiSession:
         return response
 
     @log_response
-    def post(
-        self, endpoint_url: str, data=None, json=None, **kwargs
-    ) -> requests.Response:
+    def post(self, endpoint_url: str, data=None, json=None, **kwargs) -> requests.Response:
         response = self.session.post(self.url + endpoint_url, data, json, **kwargs)
         return response
 
