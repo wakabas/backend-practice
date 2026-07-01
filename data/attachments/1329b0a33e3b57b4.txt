@@ -1,0 +1,6 @@
+[2026-07-01T13:28:37 - INFO] - Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Content-Length: 120' -H 'Content-Type: application/x-www-form-urlencoded' -d 'username=leejoseph&password=IUjwWfTnA%25n3ZkWWNCNr&password_repeat=IUjwWfTnA%25n3ZkWWNCNr&email=portercarlos%40yahoo.com' http://auth:8000/auth/register/
+[2026-07-01T13:28:37 - INFO] - Response status code = '201', elapsed_time = '0.29925'
+{
+    "detail": "User registered"
+}
+

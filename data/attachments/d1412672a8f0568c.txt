@@ -1,0 +1,18 @@
+INFO     logger:api_session.py:16 Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Content-Length: 127' -H 'Content-Type: application/x-www-form-urlencoded' -d 'username=thomasburke&password=a%29y%21%28TTDu%40uKXnv&password_repeat=a%29y%21%28TTDu%40uKXnv&email=amandajohnson%40hotmail.com' http://auth:8000/auth/register/
+INFO     logger:api_session.py:22 Response status code = '422', elapsed_time = '0.002315'
+{
+    "detail": [
+        {
+            "type": "value_error",
+            "loc": [
+                "body",
+                "password"
+            ],
+            "msg": "Value error, Password must contains at least one digit",
+            "input": "a)y!(TTDu@uKXnv",
+            "ctx": {
+                "error": {}
+            }
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+INFO     logger:api_session.py:16 Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Content-Length: 142' -H 'Content-Type: application/x-www-form-urlencoded' -d 'username=jamesyoung&password=KS0DJAKpqys4J9gGcBAraoEt6IhLFkUs88e&password_repeat=KS0DJAKpqys4J9gGcBAraoEt6IhLFkUs88e&email=brett78%40yahoo.com' http://auth:8000/auth/register/
+INFO     logger:api_session.py:22 Response status code = '422', elapsed_time = '0.001945'
+{
+    "detail": [
+        {
+            "type": "value_error",
+            "loc": [
+                "body",
+                "password"
+            ],
+            "msg": "Value error, Password must contains at least one special character",
+            "input": "KS0DJAKpqys4J9gGcBAraoEt6IhLFkUs88e",
+            "ctx": {
+                "error": {}
+            }
+        }
+    ]
+}

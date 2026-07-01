@@ -1,0 +1,128 @@
+INFO     logger:api_session.py:16 Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiY2FuZGFjZWphY2tzb24iLCJleHAiOjE3ODI5MTk3MTgsImlhdCI6MTc4MjkxMjUxOH0.LuWjQalOw7WyHUvus85NLR6IqqJsdwDQFckkrBEa2FxIT-ijZ8Xj6fnkhcuA1bffuot6LBZd0V2ez1m-9dODjd38ctvH12jwbGLjZpA_sHgc3gokH1UU-rHED6tOguMbG2bvAVOcRA6C2aCTz-Fz-NAex6QJrUC4LWtU6nhb-lK9f8wSxyaJkFX0pwcSroAADgbOthU3rpBap4Z7OiO90SEYJRJzp9UVCykquW-G3AyUD3fMPU0nQsMHT8N2deR0Uib5KQFlNfqBWP7eFRfVraluEAu2MxNNt-yeGa3g0QIo3Xe04L-zh5GFyQpYil4WsqHNPSnb_UbhddmibR6Yug' -H 'Content-Length: 73' -H 'Content-Type: application/json' -d '{"first_name": "Tammy", "last_name": "Montoya", "subject": "Mathematics"}' http://university:8000/teachers/
+INFO     logger:api_session.py:22 Response status code = '201', elapsed_time = '0.00879'
+{
+    "first_name": "Tammy",
+    "last_name": "Montoya",
+    "subject": "Mathematics",
+    "id": 4
+}
+
+INFO     logger:api_session.py:16 Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiY2FuZGFjZWphY2tzb24iLCJleHAiOjE3ODI5MTk3MTgsImlhdCI6MTc4MjkxMjUxOH0.LuWjQalOw7WyHUvus85NLR6IqqJsdwDQFckkrBEa2FxIT-ijZ8Xj6fnkhcuA1bffuot6LBZd0V2ez1m-9dODjd38ctvH12jwbGLjZpA_sHgc3gokH1UU-rHED6tOguMbG2bvAVOcRA6C2aCTz-Fz-NAex6QJrUC4LWtU6nhb-lK9f8wSxyaJkFX0pwcSroAADgbOthU3rpBap4Z7OiO90SEYJRJzp9UVCykquW-G3AyUD3fMPU0nQsMHT8N2deR0Uib5KQFlNfqBWP7eFRfVraluEAu2MxNNt-yeGa3g0QIo3Xe04L-zh5GFyQpYil4WsqHNPSnb_UbhddmibR6Yug' -H 'Content-Length: 14' -H 'Content-Type: application/json' -d '{"name": "be"}' http://university:8000/groups/
+INFO     logger:api_session.py:22 Response status code = '201', elapsed_time = '0.010157'
+{
+    "name": "be",
+    "id": 4
+}
+
+INFO     logger:api_session.py:16 Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiY2FuZGFjZWphY2tzb24iLCJleHAiOjE3ODI5MTk3MTgsImlhdCI6MTc4MjkxMjUxOH0.LuWjQalOw7WyHUvus85NLR6IqqJsdwDQFckkrBEa2FxIT-ijZ8Xj6fnkhcuA1bffuot6LBZd0V2ez1m-9dODjd38ctvH12jwbGLjZpA_sHgc3gokH1UU-rHED6tOguMbG2bvAVOcRA6C2aCTz-Fz-NAex6QJrUC4LWtU6nhb-lK9f8wSxyaJkFX0pwcSroAADgbOthU3rpBap4Z7OiO90SEYJRJzp9UVCykquW-G3AyUD3fMPU0nQsMHT8N2deR0Uib5KQFlNfqBWP7eFRfVraluEAu2MxNNt-yeGa3g0QIo3Xe04L-zh5GFyQpYil4WsqHNPSnb_UbhddmibR6Yug' -H 'Content-Length: 138' -H 'Content-Type: application/json' -d '{"first_name": "William", "last_name": "Mills", "email": "pamela84@gmail.com", "degree": "Master", "phone": "+79235427020", "group_id": 4}' http://university:8000/students/
+INFO     logger:api_session.py:22 Response status code = '201', elapsed_time = '0.016248'
+{
+    "first_name": "William",
+    "last_name": "Mills",
+    "email": "pamela84@gmail.com",
+    "degree": "Master",
+    "phone": "+79235427020",
+    "group_id": 4,
+    "id": 13
+}
+
+INFO     logger:api_session.py:16 Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiY2FuZGFjZWphY2tzb24iLCJleHAiOjE3ODI5MTk3MTgsImlhdCI6MTc4MjkxMjUxOH0.LuWjQalOw7WyHUvus85NLR6IqqJsdwDQFckkrBEa2FxIT-ijZ8Xj6fnkhcuA1bffuot6LBZd0V2ez1m-9dODjd38ctvH12jwbGLjZpA_sHgc3gokH1UU-rHED6tOguMbG2bvAVOcRA6C2aCTz-Fz-NAex6QJrUC4LWtU6nhb-lK9f8wSxyaJkFX0pwcSroAADgbOthU3rpBap4Z7OiO90SEYJRJzp9UVCykquW-G3AyUD3fMPU0nQsMHT8N2deR0Uib5KQFlNfqBWP7eFRfVraluEAu2MxNNt-yeGa3g0QIo3Xe04L-zh5GFyQpYil4WsqHNPSnb_UbhddmibR6Yug' -H 'Content-Length: 34' -H 'Content-Type: application/x-www-form-urlencoded' -d 'teacher_id=4&student_id=13&grade=1' http://university:8000/grades/
+INFO     logger:api_session.py:22 Response status code = '201', elapsed_time = '0.015475'
+{
+    "teacher_id": 4,
+    "student_id": 13,
+    "grade": 1,
+    "id": 22
+}
+
+INFO     logger:api_session.py:16 Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiY2FuZGFjZWphY2tzb24iLCJleHAiOjE3ODI5MTk3MTgsImlhdCI6MTc4MjkxMjUxOH0.LuWjQalOw7WyHUvus85NLR6IqqJsdwDQFckkrBEa2FxIT-ijZ8Xj6fnkhcuA1bffuot6LBZd0V2ez1m-9dODjd38ctvH12jwbGLjZpA_sHgc3gokH1UU-rHED6tOguMbG2bvAVOcRA6C2aCTz-Fz-NAex6QJrUC4LWtU6nhb-lK9f8wSxyaJkFX0pwcSroAADgbOthU3rpBap4Z7OiO90SEYJRJzp9UVCykquW-G3AyUD3fMPU0nQsMHT8N2deR0Uib5KQFlNfqBWP7eFRfVraluEAu2MxNNt-yeGa3g0QIo3Xe04L-zh5GFyQpYil4WsqHNPSnb_UbhddmibR6Yug' -H 'Content-Length: 34' -H 'Content-Type: application/x-www-form-urlencoded' -d 'teacher_id=4&student_id=13&grade=0' http://university:8000/grades/
+INFO     logger:api_session.py:22 Response status code = '201', elapsed_time = '0.011148'
+{
+    "teacher_id": 4,
+    "student_id": 13,
+    "grade": 0,
+    "id": 23
+}
+
+INFO     logger:api_session.py:16 Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiY2FuZGFjZWphY2tzb24iLCJleHAiOjE3ODI5MTk3MTgsImlhdCI6MTc4MjkxMjUxOH0.LuWjQalOw7WyHUvus85NLR6IqqJsdwDQFckkrBEa2FxIT-ijZ8Xj6fnkhcuA1bffuot6LBZd0V2ez1m-9dODjd38ctvH12jwbGLjZpA_sHgc3gokH1UU-rHED6tOguMbG2bvAVOcRA6C2aCTz-Fz-NAex6QJrUC4LWtU6nhb-lK9f8wSxyaJkFX0pwcSroAADgbOthU3rpBap4Z7OiO90SEYJRJzp9UVCykquW-G3AyUD3fMPU0nQsMHT8N2deR0Uib5KQFlNfqBWP7eFRfVraluEAu2MxNNt-yeGa3g0QIo3Xe04L-zh5GFyQpYil4WsqHNPSnb_UbhddmibR6Yug' -H 'Content-Length: 34' -H 'Content-Type: application/x-www-form-urlencoded' -d 'teacher_id=4&student_id=13&grade=2' http://university:8000/grades/
+INFO     logger:api_session.py:22 Response status code = '201', elapsed_time = '0.0101'
+{
+    "teacher_id": 4,
+    "student_id": 13,
+    "grade": 2,
+    "id": 24
+}
+
+INFO     logger:api_session.py:16 Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiY2FuZGFjZWphY2tzb24iLCJleHAiOjE3ODI5MTk3MTgsImlhdCI6MTc4MjkxMjUxOH0.LuWjQalOw7WyHUvus85NLR6IqqJsdwDQFckkrBEa2FxIT-ijZ8Xj6fnkhcuA1bffuot6LBZd0V2ez1m-9dODjd38ctvH12jwbGLjZpA_sHgc3gokH1UU-rHED6tOguMbG2bvAVOcRA6C2aCTz-Fz-NAex6QJrUC4LWtU6nhb-lK9f8wSxyaJkFX0pwcSroAADgbOthU3rpBap4Z7OiO90SEYJRJzp9UVCykquW-G3AyUD3fMPU0nQsMHT8N2deR0Uib5KQFlNfqBWP7eFRfVraluEAu2MxNNt-yeGa3g0QIo3Xe04L-zh5GFyQpYil4WsqHNPSnb_UbhddmibR6Yug' -H 'Content-Length: 34' -H 'Content-Type: application/x-www-form-urlencoded' -d 'teacher_id=4&student_id=13&grade=3' http://university:8000/grades/
+INFO     logger:api_session.py:22 Response status code = '201', elapsed_time = '0.010306'
+{
+    "teacher_id": 4,
+    "student_id": 13,
+    "grade": 3,
+    "id": 25
+}
+
+INFO     logger:api_session.py:16 Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiY2FuZGFjZWphY2tzb24iLCJleHAiOjE3ODI5MTk3MTgsImlhdCI6MTc4MjkxMjUxOH0.LuWjQalOw7WyHUvus85NLR6IqqJsdwDQFckkrBEa2FxIT-ijZ8Xj6fnkhcuA1bffuot6LBZd0V2ez1m-9dODjd38ctvH12jwbGLjZpA_sHgc3gokH1UU-rHED6tOguMbG2bvAVOcRA6C2aCTz-Fz-NAex6QJrUC4LWtU6nhb-lK9f8wSxyaJkFX0pwcSroAADgbOthU3rpBap4Z7OiO90SEYJRJzp9UVCykquW-G3AyUD3fMPU0nQsMHT8N2deR0Uib5KQFlNfqBWP7eFRfVraluEAu2MxNNt-yeGa3g0QIo3Xe04L-zh5GFyQpYil4WsqHNPSnb_UbhddmibR6Yug' -H 'Content-Length: 34' -H 'Content-Type: application/x-www-form-urlencoded' -d 'teacher_id=4&student_id=13&grade=0' http://university:8000/grades/
+INFO     logger:api_session.py:22 Response status code = '201', elapsed_time = '0.010774'
+{
+    "teacher_id": 4,
+    "student_id": 13,
+    "grade": 0,
+    "id": 26
+}
+
+INFO     logger:api_session.py:16 Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiY2FuZGFjZWphY2tzb24iLCJleHAiOjE3ODI5MTk3MTgsImlhdCI6MTc4MjkxMjUxOH0.LuWjQalOw7WyHUvus85NLR6IqqJsdwDQFckkrBEa2FxIT-ijZ8Xj6fnkhcuA1bffuot6LBZd0V2ez1m-9dODjd38ctvH12jwbGLjZpA_sHgc3gokH1UU-rHED6tOguMbG2bvAVOcRA6C2aCTz-Fz-NAex6QJrUC4LWtU6nhb-lK9f8wSxyaJkFX0pwcSroAADgbOthU3rpBap4Z7OiO90SEYJRJzp9UVCykquW-G3AyUD3fMPU0nQsMHT8N2deR0Uib5KQFlNfqBWP7eFRfVraluEAu2MxNNt-yeGa3g0QIo3Xe04L-zh5GFyQpYil4WsqHNPSnb_UbhddmibR6Yug' -H 'Content-Length: 34' -H 'Content-Type: application/x-www-form-urlencoded' -d 'teacher_id=4&student_id=13&grade=1' http://university:8000/grades/
+INFO     logger:api_session.py:22 Response status code = '201', elapsed_time = '0.009781'
+{
+    "teacher_id": 4,
+    "student_id": 13,
+    "grade": 1,
+    "id": 27
+}
+
+INFO     logger:api_session.py:16 Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiY2FuZGFjZWphY2tzb24iLCJleHAiOjE3ODI5MTk3MTgsImlhdCI6MTc4MjkxMjUxOH0.LuWjQalOw7WyHUvus85NLR6IqqJsdwDQFckkrBEa2FxIT-ijZ8Xj6fnkhcuA1bffuot6LBZd0V2ez1m-9dODjd38ctvH12jwbGLjZpA_sHgc3gokH1UU-rHED6tOguMbG2bvAVOcRA6C2aCTz-Fz-NAex6QJrUC4LWtU6nhb-lK9f8wSxyaJkFX0pwcSroAADgbOthU3rpBap4Z7OiO90SEYJRJzp9UVCykquW-G3AyUD3fMPU0nQsMHT8N2deR0Uib5KQFlNfqBWP7eFRfVraluEAu2MxNNt-yeGa3g0QIo3Xe04L-zh5GFyQpYil4WsqHNPSnb_UbhddmibR6Yug' -H 'Content-Length: 34' -H 'Content-Type: application/x-www-form-urlencoded' -d 'teacher_id=4&student_id=13&grade=2' http://university:8000/grades/
+INFO     logger:api_session.py:22 Response status code = '201', elapsed_time = '0.010727'
+{
+    "teacher_id": 4,
+    "student_id": 13,
+    "grade": 2,
+    "id": 28
+}
+
+INFO     logger:api_session.py:16 Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiY2FuZGFjZWphY2tzb24iLCJleHAiOjE3ODI5MTk3MTgsImlhdCI6MTc4MjkxMjUxOH0.LuWjQalOw7WyHUvus85NLR6IqqJsdwDQFckkrBEa2FxIT-ijZ8Xj6fnkhcuA1bffuot6LBZd0V2ez1m-9dODjd38ctvH12jwbGLjZpA_sHgc3gokH1UU-rHED6tOguMbG2bvAVOcRA6C2aCTz-Fz-NAex6QJrUC4LWtU6nhb-lK9f8wSxyaJkFX0pwcSroAADgbOthU3rpBap4Z7OiO90SEYJRJzp9UVCykquW-G3AyUD3fMPU0nQsMHT8N2deR0Uib5KQFlNfqBWP7eFRfVraluEAu2MxNNt-yeGa3g0QIo3Xe04L-zh5GFyQpYil4WsqHNPSnb_UbhddmibR6Yug' -H 'Content-Length: 34' -H 'Content-Type: application/x-www-form-urlencoded' -d 'teacher_id=4&student_id=13&grade=1' http://university:8000/grades/
+INFO     logger:api_session.py:22 Response status code = '201', elapsed_time = '0.010148'
+{
+    "teacher_id": 4,
+    "student_id": 13,
+    "grade": 1,
+    "id": 29
+}
+
+INFO     logger:api_session.py:16 Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiY2FuZGFjZWphY2tzb24iLCJleHAiOjE3ODI5MTk3MTgsImlhdCI6MTc4MjkxMjUxOH0.LuWjQalOw7WyHUvus85NLR6IqqJsdwDQFckkrBEa2FxIT-ijZ8Xj6fnkhcuA1bffuot6LBZd0V2ez1m-9dODjd38ctvH12jwbGLjZpA_sHgc3gokH1UU-rHED6tOguMbG2bvAVOcRA6C2aCTz-Fz-NAex6QJrUC4LWtU6nhb-lK9f8wSxyaJkFX0pwcSroAADgbOthU3rpBap4Z7OiO90SEYJRJzp9UVCykquW-G3AyUD3fMPU0nQsMHT8N2deR0Uib5KQFlNfqBWP7eFRfVraluEAu2MxNNt-yeGa3g0QIo3Xe04L-zh5GFyQpYil4WsqHNPSnb_UbhddmibR6Yug' -H 'Content-Length: 34' -H 'Content-Type: application/x-www-form-urlencoded' -d 'teacher_id=4&student_id=13&grade=2' http://university:8000/grades/
+INFO     logger:api_session.py:22 Response status code = '201', elapsed_time = '0.009759'
+{
+    "teacher_id": 4,
+    "student_id": 13,
+    "grade": 2,
+    "id": 30
+}
+
+INFO     logger:api_session.py:16 Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiY2FuZGFjZWphY2tzb24iLCJleHAiOjE3ODI5MTk3MTgsImlhdCI6MTc4MjkxMjUxOH0.LuWjQalOw7WyHUvus85NLR6IqqJsdwDQFckkrBEa2FxIT-ijZ8Xj6fnkhcuA1bffuot6LBZd0V2ez1m-9dODjd38ctvH12jwbGLjZpA_sHgc3gokH1UU-rHED6tOguMbG2bvAVOcRA6C2aCTz-Fz-NAex6QJrUC4LWtU6nhb-lK9f8wSxyaJkFX0pwcSroAADgbOthU3rpBap4Z7OiO90SEYJRJzp9UVCykquW-G3AyUD3fMPU0nQsMHT8N2deR0Uib5KQFlNfqBWP7eFRfVraluEAu2MxNNt-yeGa3g0QIo3Xe04L-zh5GFyQpYil4WsqHNPSnb_UbhddmibR6Yug' -H 'Content-Length: 34' -H 'Content-Type: application/x-www-form-urlencoded' -d 'teacher_id=4&student_id=13&grade=0' http://university:8000/grades/
+INFO     logger:api_session.py:22 Response status code = '201', elapsed_time = '0.010832'
+{
+    "teacher_id": 4,
+    "student_id": 13,
+    "grade": 0,
+    "id": 31
+}
+INFO     logger:logger.py:31 [STEP 1] Receive grades statistics for teacher
+INFO     logger:api_session.py:16 Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXJuYW1lIjoiY2FuZGFjZWphY2tzb24iLCJleHAiOjE3ODI5MTk3MTgsImlhdCI6MTc4MjkxMjUxOH0.LuWjQalOw7WyHUvus85NLR6IqqJsdwDQFckkrBEa2FxIT-ijZ8Xj6fnkhcuA1bffuot6LBZd0V2ez1m-9dODjd38ctvH12jwbGLjZpA_sHgc3gokH1UU-rHED6tOguMbG2bvAVOcRA6C2aCTz-Fz-NAex6QJrUC4LWtU6nhb-lK9f8wSxyaJkFX0pwcSroAADgbOthU3rpBap4Z7OiO90SEYJRJzp9UVCykquW-G3AyUD3fMPU0nQsMHT8N2deR0Uib5KQFlNfqBWP7eFRfVraluEAu2MxNNt-yeGa3g0QIo3Xe04L-zh5GFyQpYil4WsqHNPSnb_UbhddmibR6Yug' 'http://university:8000/grades/stats/?teacher_id=4'
+INFO     logger:api_session.py:22 Response status code = '200', elapsed_time = '0.008709'
+{
+    "count": 10,
+    "min": 0,
+    "max": 3,
+    "avg": 1.2
+}
+
+INFO     logger:logger.py:31 [STEP 2] Perform logic check, compare actual and received count of grades
