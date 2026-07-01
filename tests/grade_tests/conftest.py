@@ -54,7 +54,9 @@ def students_lst(university_service, group_id) -> list[StudentPostResponse]:
 
 
 @pytest.fixture(scope="function", params=[1, 2], ids=["teacher_1", "teacher_2"])
-def teacher_and_grades(request, university_service, teacher_id, group_id, student_id) -> tuple[int, list[Any]]:
+def teacher_and_grades(
+    request, university_service, teacher_id, group_id, student_id
+) -> tuple[int, list[Any]]:
     grades = university_service.create_multiple_grades(
         GradeFactory.batch(10, teacher_id=teacher_id, student_id=student_id)
     )
@@ -70,12 +72,11 @@ def student_group_with_marks(university_service, grades_lst, teacher_id, student
         )
     return students_lst[0].group_id
 
+
 @pytest.fixture(scope="function")
 def student_with_grades(university_service, grades_lst, teacher_id, student_id):
     for grade in grades_lst:
         university_service.create_grade(
-            GradePostRequest(
-                teacher_id=teacher_id, student_id=student_id, grade=grade
-            )
+            GradePostRequest(teacher_id=teacher_id, student_id=student_id, grade=grade)
         )
     return student_id

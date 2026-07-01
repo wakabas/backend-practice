@@ -22,7 +22,7 @@ class TestRegisterContract:
 
     @allure.title("Invalid registration test")
     def test_invalid_password_register(
-            self, auth_session_service_anonymous, invalid_user_creds
+        self, auth_session_service_anonymous, invalid_user_creds
     ):
         register_helper = AuthenticationHelper(
             api_session=auth_session_service_anonymous
@@ -42,8 +42,8 @@ class TestRegisterContract:
         register_helper.post_register(data=doubled_user)
         doubled_register_response = register_helper.post_register(data=doubled_user)
         assert (
-                requests.status_codes.codes.conflict
-                == doubled_register_response.status_code
+            requests.status_codes.codes.conflict
+            == doubled_register_response.status_code
         ), (
             f"Expected code - {requests.status_codes.codes.conflict}, but got {doubled_register_response.status_code}"
         )
