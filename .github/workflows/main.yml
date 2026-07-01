@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Python 3.13
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.13"
 
@@ -30,10 +30,10 @@ jobs:
       - name: Create .env and start topology
         run: |
           echo "${{ secrets.POSTGRE_ADMINS }}" > .env
-          echo "${{ secrets.URLS }}" >> .env
+          echo "${{ vars.URLS }}" >> .env
           docker compose up postgres_auth postgres_university auth university -d
           docker compose run backend-tests
-
+          
       - name: Load Allure history and Generate Report
         uses: simple-elf/allure-report-action@master
         if: always()
