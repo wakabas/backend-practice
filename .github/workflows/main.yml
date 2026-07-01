@@ -35,7 +35,10 @@ jobs:
           docker compose run backend-tests
           
       - name: Read log for postgres_university container
-        run: docker compose logs postgres_university
+        if: failure()
+        run: |
+          docker compose logs postgres_university
+          docker compose logs postgres_auth
 
       - name: Load Allure history and Generate Report
         uses: simple-elf/allure-report-action@master
