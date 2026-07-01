@@ -10,6 +10,7 @@ from services.university.factories.student_factory import StudentFactory
 from services.university.factories.teacher_factory import TeacherFactory
 from services.university.models.grade_post_request import GradePostRequest
 from services.university.models.group_post_request import GroupPostRequest
+from services.university.models.student_post_response import StudentPostResponse
 
 faker = Faker()
 
@@ -43,18 +44,17 @@ def teacher_id(university_service) -> int:
 
 
 @pytest.fixture(scope="function")
-def students_lst(university_service, group_id) -> list[int]:
+def students_lst(university_service, group_id) -> list[StudentPostResponse]:
     students_requests = StudentFactory.batch(10, group_id=group_id)
-    student_ids = [
-        student.id
+    students = [
+        student
         for student in university_service.create_multiple_students(students_requests)
     ]
-    return student_ids
+    return students
 
 
 @pytest.fixture(scope="function", params=[1, 2], ids=["teacher_1", "teacher_2"])
 def teacher_and_grades(request, university_service, teacher_id, group_id, student_id) -> tuple[int, list[Any]]:
-
     grades = university_service.create_multiple_grades(
         GradeFactory.batch(10, teacher_id=teacher_id, student_id=student_id)
     )
@@ -66,7 +66,7 @@ def teacher_and_grades(request, university_service, teacher_id, group_id, studen
 def student_group_with_marks(university_service, grades_lst, teacher_id, students_lst):
     for student, grade in zip(students_lst, grades_lst):
         university_service.create_grade(
-            GradePostRequest(teacher_id=teacher_id, student_id=student, grade=grade)
+            GradePostRequest(teacher_id=teacher_id, student_id=student.id, grade=grade)
         )
     return students_lst[0].group_id
 
