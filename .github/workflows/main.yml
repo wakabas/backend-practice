@@ -2,12 +2,12 @@ name: backend-ci-cd
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
-  run-tests:
+  verify-pushed-code:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,13 +27,43 @@ jobs:
           python -m ruff check .
           python -m ruff format --check .
 
+  run-tests:
+    runs-on: ubuntu-latest
+    needs: verify-pushed-code
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
       - name: Create .env and start topology
         run: |
           echo "${{ secrets.POSTGRE_ADMINS }}" > .env
           echo "${{ vars.URLS }}" >> .env
           docker compose up postgres_auth postgres_university auth university -d
           docker compose run backend-tests
-          
+
+      - name: Upload Allure reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: allure-results
+          path: allure-results/
+
+  generate-report:
+    runs-on: ubuntu-latest
+    needs: run-tests
+    if: always()
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Download Allure reports
+        uses: actions/download-artifact@v8
+        with:
+          name: allure-results
+          path: allure-results/
+
       - name: Load Allure history and Generate Report
         uses: simple-elf/allure-report-action@master
         if: always()
