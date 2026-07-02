@@ -1,0 +1,18 @@
+INFO     logger:api_session.py:16 Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Content-Length: 329' -H 'Content-Type: application/x-www-form-urlencoded' -d 'username=jennifer11&password=c0U1ox502NNQg%2AMsS%24v%23AuvyCQw%2Bet07F%24hkL_rNoD6Nnp%5EFLH_f%5ER%25gjL%2ASNNToff2L7WYEXpZ%5EB_jQSz%287sc%21X%21yhLym_fp%2Bt8w&password_repeat=c0U1ox502NNQg%2AMsS%24v%23AuvyCQw%2Bet07F%24hkL_rNoD6Nnp%5EFLH_f%5ER%25gjL%2ASNNToff2L7WYEXpZ%5EB_jQSz%287sc%21X%21yhLym_fp%2Bt8w&email=lori84%40yahoo.com' http://auth:8000/auth/register/
+INFO     logger:api_session.py:22 Response status code = '422', elapsed_time = '0.002354'
+{
+    "detail": [
+        {
+            "type": "value_error",
+            "loc": [
+                "body",
+                "password"
+            ],
+            "msg": "Value error, Password length should be shorter than 100 characters",
+            "input": "c0U1ox502NNQg*MsS$v#AuvyCQw+et07F$hkL_rNoD6Nnp^FLH_f^R%gjL*SNNToff2L7WYEXpZ^B_jQSz(7sc!X!yhLym_fp+t8w",
+            "ctx": {
+                "error": {}
+            }
+        }
+    ]
+}
