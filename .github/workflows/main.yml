@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  verify-pushed-code:
+  linter:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,7 +29,7 @@ jobs:
 
   run-tests:
     runs-on: ubuntu-latest
-    needs: verify-pushed-code
+    needs: linter
 
     steps:
       - name: Checkout repository
@@ -37,8 +37,14 @@ jobs:
 
       - name: Create .env and start topology
         run: |
-          echo "${{ secrets.POSTGRE_ADMINS }}" > .env
-          echo "${{ vars.URLS }}" >> .env
+          echo "${{ secrets.POSTGRES_USER }}" > .env
+          echo "${{ secrets.POSTGRES_PASSWORD }}" >> .env
+          echo "${{ secrets.POSTGRES_DB_UNIVERSITY }}" >> .env
+          echo "${{ secrets.POSTGRES_DB_AUTH }}" >> .env
+          echo "${{ vars.UNIVERSITY_SERVICE_INTERNAL_URL }}" >> .env
+          echo "${{ vars.UNIVERSITY_SERVICE_API_URL }}" >> .env
+          echo "${{ vars.AUTH_SERVICE_INTERNAL_URL }}" >> .env
+          echo "${{ vars.AUTH_SERVICE_API_URL }}" >> .env
           docker compose up postgres_auth postgres_university auth university -d
           docker compose run backend-tests
 
