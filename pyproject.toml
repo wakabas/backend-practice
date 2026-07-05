@@ -1,0 +1,35 @@
+[project]
+name = "backend-tests"
+version = "1.0"
+dependencies = [
+    "curlify>=3.0.0",
+    "email-validator>=2.3.0",
+    "Faker>=40.23.0",
+    "polyfactory>=3.3.0",
+    "pydantic>=2.13.4",
+    "pytest>=9.1.0",
+    "requests>=2.34.2",
+    "allure-pytest>=2.16.0"
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.15.17"
+]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+ignore = ["D100"]
+
+[tool.ruff.format]
+quote-style = "double"
+
+[tool.pytest.ini_options]
+addopts = [
+    "--alluredir", "allure-results",
+    "--clean-alluredir"
+]
