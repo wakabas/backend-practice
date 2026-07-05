@@ -1,0 +1,11 @@
+INFO     logger:api_session.py:16 Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Content-Length: 123' -H 'Content-Type: application/x-www-form-urlencoded' -d 'username=laurenwade&password=hz3Hgu3a%5E2%24QKsDwcJAa&password_repeat=hz3Hgu3a%5E2%24QKsDwcJAa&email=jamesyoung%40yahoo.com' http://auth:8000/auth/register/
+INFO     logger:api_session.py:22 Response status code = '201', elapsed_time = '0.272114'
+{
+    "detail": "User registered"
+}
+
+INFO     logger:api_session.py:16 Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Content-Length: 123' -H 'Content-Type: application/x-www-form-urlencoded' -d 'username=laurenwade&password=hz3Hgu3a%5E2%24QKsDwcJAa&password_repeat=hz3Hgu3a%5E2%24QKsDwcJAa&email=jamesyoung%40yahoo.com' http://auth:8000/auth/register/
+INFO     logger:api_session.py:22 Response status code = '409', elapsed_time = '0.002732'
+{
+    "detail": "Username is already taken"
+}

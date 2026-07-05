@@ -1,0 +1,19 @@
+[2026-07-05T15:29:54 - INFO] - Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Content-Length: 95' -H 'Content-Type: application/x-www-form-urlencoded' -d 'username=jamesshaw&password=%26p41OgY&password_repeat=%26p41OgY&email=johnrobertson%40gmail.com' http://auth:8000/auth/register/
+[2026-07-05T15:29:54 - INFO] - Response status code = '422', elapsed_time = '0.002293'
+{
+    "detail": [
+        {
+            "type": "value_error",
+            "loc": [
+                "body",
+                "password"
+            ],
+            "msg": "Value error, Password length should be longer than 7 characters",
+            "input": "&p41OgY",
+            "ctx": {
+                "error": {}
+            }
+        }
+    ]
+}
+

@@ -1,0 +1,19 @@
+[2026-07-05T15:29:55 - INFO] - Request: curl -H 'User-Agent: python-requests/2.34.2' -H 'Accept-Encoding: gzip, deflate' -H 'Accept: */*' -H 'Connection: keep-alive' -H 'Content-Length: 99' -H 'Content-Type: application/x-www-form-urlencoded' -d 'username=burnsmarcus&password=M%5ENgJCaC&password_repeat=M%5ENgJCaC&email=angelasanford%40yahoo.com' http://auth:8000/auth/register/
+[2026-07-05T15:29:55 - INFO] - Response status code = '422', elapsed_time = '0.001753'
+{
+    "detail": [
+        {
+            "type": "value_error",
+            "loc": [
+                "body",
+                "password"
+            ],
+            "msg": "Value error, Password must contains at least one digit",
+            "input": "M^NgJCaC",
+            "ctx": {
+                "error": {}
+            }
+        }
+    ]
+}
+
